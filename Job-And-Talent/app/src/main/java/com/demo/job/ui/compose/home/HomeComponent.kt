@@ -1,4 +1,4 @@
-package com.demo.job.ui.compose
+package com.demo.job.ui.compose.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
