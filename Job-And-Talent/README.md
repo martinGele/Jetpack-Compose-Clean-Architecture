@@ -1,4 +1,4 @@
-### A test Demo Application done for a task for JobAndTalent 
+### A test Demo Application done for JobAndTalent as a technical assignment 
 
 ### Job-And-Talent Architecture:
 
