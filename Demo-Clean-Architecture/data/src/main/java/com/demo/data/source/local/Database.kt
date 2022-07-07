@@ -13,7 +13,7 @@ import com.demo.data.model.Photos
 abstract class Database: RoomDatabase() {
     abstract fun getPhotosDao(): DaoPhotos
     companion object {
-        const val DATABASE_NAME: String = "zoo_database"
+        const val DATABASE_NAME: String = "photos_database"
         @Volatile private var instance : Database? = null
         private val LOCK = Any()
         operator fun invoke(context: Context) = instance ?: synchronized(LOCK){

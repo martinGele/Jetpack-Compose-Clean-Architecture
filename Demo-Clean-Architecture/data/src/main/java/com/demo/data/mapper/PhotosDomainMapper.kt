@@ -20,4 +20,5 @@ internal class PhotosDomainMapper {
             url = photos.url
         )
     }
+
 }

@@ -6,4 +6,5 @@ import com.demo.domain.extension.Result
 
 interface Repository {
     suspend fun getItemList(): Flow<Result<List<Photos>>>
+    suspend fun getItem(id:Int):Photos
 }

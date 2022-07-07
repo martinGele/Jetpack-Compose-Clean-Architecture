@@ -2,7 +2,7 @@ package com.demo.presentation.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.demo.domain.extension.Result
-import com.demo.domain.usecase.ItemUseCase
+import com.demo.domain.usecase.GetPhotosUseCase
 import com.demo.domain.entity.Photos as DomainPhotos
 import com.demo.presentation.mapper.PhotosUIMapper
 import com.demo.presentation.model.DomainMockPhotosList
@@ -33,7 +33,7 @@ class HomeViewModelTest {
     private lateinit var photosList: List<DomainPhotos>
 
     @RelaxedMockK
-    private lateinit var getUseCase: ItemUseCase
+    private lateinit var getUseCase: GetPhotosUseCase
 
     @Before
     fun setUp() {

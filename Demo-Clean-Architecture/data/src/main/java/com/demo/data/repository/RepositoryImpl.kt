@@ -3,6 +3,7 @@ package com.demo.data.repository
 import com.demo.data.mapper.PhotosDomainMapper
 import com.demo.data.source.local.LocalSource
 import com.demo.data.source.remote.RemoteSource
+import com.demo.domain.entity.Photos
 import com.demo.domain.extension.repoFlow
 import com.demo.domain.repository.Repository
 import kotlinx.coroutines.CoroutineDispatcher
@@ -13,7 +14,7 @@ class RepositoryImpl @Inject constructor(
     private val dispatcher: CoroutineDispatcher,
     private val remoteSource: RemoteSource,
     private val localSource: LocalSource
-): Repository {
+) : Repository {
     override suspend fun getItemList() = repoFlow {
         try {
             val data = remoteSource.getItemList()
@@ -26,4 +27,7 @@ class RepositoryImpl @Inject constructor(
         }
     }.flowOn(dispatcher)
 
+    override suspend fun getItem(id: Int): Photos {
+        return PhotosDomainMapper().toDomain(localSource.getSingleItem(id))
+    }
 }

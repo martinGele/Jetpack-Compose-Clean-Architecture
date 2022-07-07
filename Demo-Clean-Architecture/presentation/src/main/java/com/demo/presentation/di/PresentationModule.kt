@@ -1,7 +1,7 @@
 package com.demo.presentation.di
 
 import com.demo.domain.repository.Repository
-import com.demo.domain.usecase.ItemUseCase
+import com.demo.domain.usecase.GetPhotosUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,7 +12,7 @@ import dagger.hilt.components.SingletonComponent
 object PresentationModule {
 
     @Provides
-    fun provideItemUseCase(repository: Repository): ItemUseCase {
-        return ItemUseCase(repository)
+    fun provideItemUseCase(repository: Repository): GetPhotosUseCase {
+        return GetPhotosUseCase(repository)
     }
 }

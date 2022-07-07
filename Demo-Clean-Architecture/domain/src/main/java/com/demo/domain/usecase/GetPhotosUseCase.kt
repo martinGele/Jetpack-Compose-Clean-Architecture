@@ -6,7 +6,7 @@ import com.demo.domain.extension.Result
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class ItemUseCase @Inject constructor(
+class GetPhotosUseCase @Inject constructor(
     private val repository: Repository
 ) {
     suspend operator fun invoke(): Flow<Result<List<Photos>>> =

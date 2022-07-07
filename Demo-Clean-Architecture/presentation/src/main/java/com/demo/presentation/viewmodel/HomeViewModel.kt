@@ -4,7 +4,7 @@ import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.demo.domain.extension.Result
-import com.demo.domain.usecase.ItemUseCase
+import com.demo.domain.usecase.GetPhotosUseCase
 import com.demo.presentation.mapper.PhotosUIMapper
 import com.demo.presentation.model.Photos
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val useCase: ItemUseCase
+    private val useCase: GetPhotosUseCase
 ): ViewModel() {
 
     init {

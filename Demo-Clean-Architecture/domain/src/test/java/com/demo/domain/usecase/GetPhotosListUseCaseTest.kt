@@ -16,17 +16,17 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 
-class ItemUseCaseTest {
+class GetPhotosListUseCaseTest {
     @RelaxedMockK
     lateinit var repo: Repository
 
-    private lateinit var useCase: ItemUseCase
+    private lateinit var useCase: GetPhotosUseCase
     private lateinit var photosList: List<Photos>
 
     @Before
     fun setUp() {
         MockKAnnotations.init(this)
-        useCase = ItemUseCase(repo)
+        useCase = GetPhotosUseCase(repo)
         photosList = MockPhotosList().getPhotosList()
     }
 
