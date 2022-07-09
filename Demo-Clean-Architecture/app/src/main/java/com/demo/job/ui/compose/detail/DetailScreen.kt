@@ -6,41 +6,44 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.demo.presentation.viewmodel.DetailViewModel
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
-fun DetailScreen(viewModel: DetailViewModel = hiltViewModel()) {
+fun DetailScreen(viewModel: DetailViewModel) {
 
-    val photos = viewModel.photos
-
-    if (photos != null) {
-        Column(modifier = Modifier.fillMaxSize()) {
-            Image(
-                painter = rememberImagePainter(
-                    data = photos.thumbnailUrl,
-                    builder = {
-                        crossfade(true)
-                    }
-                ),
-                contentScale = ContentScale.FillBounds,
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(250.dp)
-                    .clip(MaterialTheme.shapes.medium)
-            )
-
-            Text(modifier = Modifier.padding(15.dp), text = photos.title, color = MaterialTheme.colors.primaryVariant, style = typography.h5)
-        }
-    } else {
-        //TODO create composable that will
+    LaunchedEffect(key1 = viewModel) {
+        val photos = viewModel.photos
+        viewModel.getPhoto(photos?.id ?: 0)
     }
+
+    val photos = viewModel.state.collectAsState()
+
+    Column(modifier = Modifier.fillMaxSize()) {
+        Image(
+            painter = rememberImagePainter(
+                data = photos.value.thumbnailUrl,
+                builder = {
+                    crossfade(true)
+                }
+            ),
+            contentScale = ContentScale.FillBounds,
+            contentDescription = null,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(250.dp)
+                .clip(MaterialTheme.shapes.medium)
+        )
+
+        Text(modifier = Modifier.padding(15.dp), text = photos.value.title, color = MaterialTheme.colors.primaryVariant, style = typography.h5)
+    }
+
 }

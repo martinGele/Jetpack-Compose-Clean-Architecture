@@ -17,5 +17,5 @@ class LocalSourceImpl @Inject constructor(
     override suspend fun getSingleItem(id: Int): Photos {
         return daoPhotos.getSinglePhoto(id)
     }
-    
+
 }

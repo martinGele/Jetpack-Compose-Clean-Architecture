@@ -14,6 +14,6 @@ interface DaoPhotos {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addPhotosList(photos: List<Photos>)
 
-    @Query("SELECT * FROM album_table WHERE id=:id LIMIT 1")
+    @Query("SELECT * FROM album_table WHERE id=:id")
     suspend fun getSinglePhoto(id: Int): Photos
 }

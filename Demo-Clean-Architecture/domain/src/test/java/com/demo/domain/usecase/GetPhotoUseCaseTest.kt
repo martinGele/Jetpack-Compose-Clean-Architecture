@@ -8,6 +8,8 @@ import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.impl.annotations.RelaxedMockK
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
@@ -30,13 +32,15 @@ class GetPhotoUseCaseTest {
     @Test
     fun getItem() {
         runBlocking {
-            coEvery { repo.getItem(1) } returns photo
+            coEvery { repo.getItem(1) } returns flow { photo }
 
             val data = useCase.invoke(1)
 
             coVerify { useCase.invoke(1) }
 
-            Truth.assertThat(data).isEqualTo(photo)
+            data.collectLatest {
+                Truth.assertThat(it).isEqualTo(photo)
+            }
         }
     }
 }
