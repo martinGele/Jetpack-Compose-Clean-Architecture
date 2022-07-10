@@ -35,8 +35,6 @@ A
 data/build.gradle,7\2\72c2781d3d9ac8b82a3543f0fba5c796b2975232
 I
 presentation/build.gradle,2\9\29ca4091f3fd866a7d8488b04776c5994c7983b9
-
-Opresentation/src/test/java/com/demo/presentation/viewmodel/HomeViewModelTest.kt,c\9\c9ac5a85af52696a1466ce4bfd19cc1b3b933c63
 t
 Dpresentation/src/test/java/com/demo/presentation/model/PhotosTest.kt,a\e\ae04ae61e22b1245d3c7683ede06573f2c4fc81e
 ^

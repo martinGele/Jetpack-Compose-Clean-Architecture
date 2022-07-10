@@ -1,6 +1,5 @@
 package com.demo.job.ui.compose.home
 
-import android.net.Uri
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,7 +21,6 @@ import com.demo.job.ui.util.connectivityState
 import com.demo.presentation.viewmodel.HomeViewModel
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
-import com.google.gson.Gson
 
 @OptIn(ExperimentalAnimationApi::class, kotlinx.coroutines.ExperimentalCoroutinesApi::class)
 @Composable
@@ -56,8 +54,7 @@ fun HomeScreen(
                         HomeComponent(
                             data = item,
                             onItemClicked = {
-                                val photosItem = Uri.encode(Gson().toJson(it))
-                                navController.navigate(Screen.Detail.createRoute(photosItem))
+                                navController.navigate(Screen.Detail.createRoute(it))
                             }
                         )
                     }

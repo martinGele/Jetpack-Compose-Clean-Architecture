@@ -10,7 +10,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.demo.job.ui.compose.detail.DetailScreen
 import com.demo.job.ui.compose.home.HomeScreen
-import com.demo.presentation.model.NavTypePhotos
 import com.demo.presentation.util.PHOTOS_BUNDLE_ITEM
 
 @ExperimentalFoundationApi
@@ -29,9 +28,10 @@ fun NavGraphs(navHostController: NavHostController) {
         composable(
             route = Screen.Detail.route,
             arguments = listOf(navArgument(PHOTOS_BUNDLE_ITEM) {
-                type = NavTypePhotos()
-            })) {
-            DetailScreen(hiltViewModel())
+                type = NavType.IntType
+            })) { backStackEntry ->
+            val argument = backStackEntry.arguments?.getInt(PHOTOS_BUNDLE_ITEM)
+            DetailScreen(hiltViewModel(), argument)
         }
     }
 }

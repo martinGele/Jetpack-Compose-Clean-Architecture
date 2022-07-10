@@ -17,7 +17,7 @@ import com.demo.presentation.model.Photos
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
-fun HomeComponent(data: Photos, onItemClicked: (Photos) -> Unit, modifier: Modifier = Modifier) {
+fun HomeComponent(data: Photos, onItemClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
     val typography = MaterialTheme.typography
     Card(
         shape = MaterialTheme.shapes.small,
@@ -28,7 +28,7 @@ fun HomeComponent(data: Photos, onItemClicked: (Photos) -> Unit, modifier: Modif
             )
             .fillMaxWidth()
             .clickable(onClick = {
-                onItemClicked(data)
+                onItemClicked(data.id)
             }),
         elevation = 8.dp,
     ) {

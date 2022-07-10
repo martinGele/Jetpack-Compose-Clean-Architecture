@@ -18,11 +18,11 @@ import com.demo.presentation.viewmodel.DetailViewModel
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
-fun DetailScreen(viewModel: DetailViewModel) {
+fun DetailScreen(viewModel: DetailViewModel, argument: Int?) {
 
+    val photosId = argument ?: 0
     LaunchedEffect(key1 = viewModel) {
-        val photos = viewModel.photos
-        viewModel.getPhoto(photos?.id ?: 0)
+        viewModel.getPhoto(photosId)
     }
 
     val photos = viewModel.state.collectAsState()
