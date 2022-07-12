@@ -32,7 +32,7 @@ class GetPhotoUseCaseTest {
     @Test
     fun getItem() {
         runBlocking {
-            coEvery { repo.getItem(1) } returns flow { photo }
+            coEvery { repo.getItem(1) } returns flow { emit(photo) }
 
             val data = useCase.invoke(1)
 

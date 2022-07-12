@@ -21,8 +21,6 @@ v
 Fdata/src/test/java/com/demo/data/source/remote/RemoteSourceImplTest.kt,5\5\556b47659c7b7c02cd86bce9e1acd16fb3e4ff0b
 C
 domain/build.gradle,a\3\a3021bb5ba623a461b5fdb89ae51923a4945c354
-
-Opresentation/src/test/java/com/demo/presentation/viewmodel/TestCoroutineRule.kt,f\1\f1b32be3df92837b93d7171a91b5f5c798d2e6ea
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 9
@@ -57,3 +55,7 @@ h
 8domain/src/main/java/com/demo/domain/extension/Result.kt,d\5\d54b91c27976b0e06aec98ddec0136c004117d89
 l
 <domain/src/test/java/com/demo/domain/extension/ResultTest.kt,3\8\384377b6e697b1ecd593290bff6eadcec109d04d
+p
+@app/src/main/java/com/demo/job/ui/compose/detail/DetailScreen.kt,e\0\e03ded203cf1baf4644c91e62171655914d9f8b9
+o
+?app/src/main/java/com/demo/job/ui/compose/home/HomeComponent.kt,b\9\b9097cd77380f3ec4b4c4b972147d14a878b35f7
